@@ -5,10 +5,11 @@ import Loadable from "~/components/Loadable/index"
 import { ConnectedRouter } from 'connected-react-router';
 import {Route, BrowserRouter} from "react-router-dom";
 import {history} from "../store/index"
+import Home from "~/pages/home/Home"
+import About from "~/pages/about/About"
+// const Home=Loadable(()=>import(/* webpackChunkName: "Home" */ "../pages/home/Home"))
 
-const Home=Loadable(()=>import(/* webpackChunkName: "Home" */ "../pages/home/Home"))
-
-const About=Loadable(()=>import(/* webpackChunkName: "About" */"../pages/about/About"))
+// const About=Loadable(()=>import(/* webpackChunkName: "About" */"../pages/about/About"))
 
 export default (
     <ConnectedRouter history={history}>

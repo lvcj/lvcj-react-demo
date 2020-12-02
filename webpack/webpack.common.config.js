@@ -86,7 +86,7 @@ const entry = "./src/index.js";
 const output = {
     filename: process.env.NODE_ENV == "development"? "js/build.js":"js/[name].[chunkhash:8].js",
     chunkFilename: process.env.NODE_ENV == "development"? "js/[name].chunk.js":"js/[name].[chunkhash:6].js",
-    publicPath: "/",
+    publicPath: process.env.NODE_ENV == "development"? "http://localhost:8088/":"/",
     library: "lvcj-react-demo",
     libraryTarget: "umd",
     jsonpFunction: "webpackJsonp_lvcj-react-demo",

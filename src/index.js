@@ -19,7 +19,7 @@ export async function mount(props) {
   
 export async function unmount() {
     // 确保子应用切换时，销毁 Toast 动态生成的 div
-    Toast.hide()
+   // Toast.hide()
     ReactDOM.unmountComponentAtNode(document.getElementById("root"))
 }
   
