@@ -5,7 +5,7 @@ module.exports = {
     // 开发者模式
     mode: "development", 
     entry:config.entry,
-    output:config.output,
+    output:{pathinfo: true,...config.output},
     resolve: config.resolve,
     module:config.modules(),
     devtool: "cheap-module-source-map",
@@ -14,7 +14,7 @@ module.exports = {
         new htmlWebpackPlugin({
             title: "abc",
             filename: "index.html",//生成的html存放路径，相对于 path
-            template: `${config.DIST}/index.html`,//html模板路径
+            template: `${config.PUBLIC}/index.html`,//html模板路径
             minify: {//压缩HTML文件
               collapseWhitespace: true, //删除空白符与换行符 
               emoveComments: true,//去掉注释
@@ -25,7 +25,7 @@ module.exports = {
     devServer: {
         host: "0.0.0.0",
         port: 8088,
-        contentBase: config.DIST,
+        contentBase: config.PUBLIC,
         headers: {
           "Access-Control-Allow-Origin": "*",
         },

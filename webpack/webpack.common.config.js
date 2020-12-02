@@ -2,6 +2,7 @@ const path = require("path");
 
 const DIST = path.resolve( __dirname, "../", "dist");
 const SRC = path.resolve( __dirname, "../", "src");
+const PUBLIC = path.resolve( __dirname, "../", "public");
 const SVG = path.resolve( __dirname, "../", "src/assert/svg");
 function modules(cssPlugin){
     return {
@@ -83,9 +84,14 @@ function modules(cssPlugin){
 
 const entry = "./src/index.js";
 const output = {
-    path: path.join(__dirname, "../", 'dist'),
     filename: process.env.NODE_ENV == "development"? "js/build.js":"js/[name].[chunkhash:8].js",
-    chunkFilename: process.env.NODE_ENV == "development"? "js/[name].chunk.js":"js/[name].[chunkhash:6].js"
+    chunkFilename: process.env.NODE_ENV == "development"? "js/[name].chunk.js":"js/[name].[chunkhash:6].js",
+    publicPath: "/",
+    library: "lvcj-react-demo",
+    libraryTarget: "umd",
+    jsonpFunction: "webpackJsonp_lvcj-react-demo",
+    devtoolModuleFilenameTemplate: info =>
+      path.resolve(info.absoluteResourcePath).replace(/\\/g, "/"),
 }
 
 const resolve = {
@@ -109,6 +115,7 @@ module.exports = {
     modules,
     DIST,
     SRC,
+    PUBLIC,
     SVG,
     entry,
     output,

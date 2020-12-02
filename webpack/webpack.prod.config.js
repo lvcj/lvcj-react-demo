@@ -13,7 +13,7 @@ module.exports = {
     // 开发者模式
     mode: "production", 
     entry: config.entry,
-    output: config.output,
+    output: {path: path.join(__dirname, "../", 'dist'),...config.output},
     resolve: config.resolve,
     module: config.modules(MiniCssExtractPlugin),
     devtool: "source-map",
@@ -72,7 +72,7 @@ module.exports = {
         new htmlWebpackPlugin({
             title: "abc",
             filename: "index.html",//生成的html存放路径，相对于 path
-            template: `${config.DIST}/index.html`,//html模板路径
+            template: `${config.PUBLIC}/index.html`,//html模板路径
             minify: {//压缩HTML文件
               collapseWhitespace: true, //删除空白符与换行符 
               emoveComments: true,//去掉注释

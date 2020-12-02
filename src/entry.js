@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react"
-import "./index.scss";
-export default function Entry(){
-    const aa = ()=>{
-        console.log("aaa===>>>>>")
-        alert(1111)
-    }
-    return <div className="entry-wrap" onClick={aa}>entry hello</div>
-}
+import configureStore from "./store/index"
+import routers from "./router/router"
+import { Provider } from "react-redux";
 
+import "./index.scss";
+
+const store = configureStore()
+export default function Entry(){
+    return <Provider store={store}>
+        {routers}
+    </Provider>
+}
