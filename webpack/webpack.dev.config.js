@@ -1,5 +1,7 @@
 const config = require("./webpack.common.config")
 const htmlWebpackPlugin = require("html-webpack-plugin"); 
+//const Module_Load_On_Demand = require("../plugin/Module_Load_On_Demand");
+
 console.log("process.env.NODE_ENV ===>>>>",process.env.NODE_ENV)
 module.exports = {
     // 开发者模式
@@ -21,6 +23,7 @@ module.exports = {
               minifyCSS: true, // 压缩css
             },
         }),
+       // new Module_Load_On_Demand()
     ],
     devServer: {
         host: "0.0.0.0",

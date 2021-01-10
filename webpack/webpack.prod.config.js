@@ -13,7 +13,7 @@ module.exports = {
     // 开发者模式
     mode: "production", 
     entry: config.entry,
-    output: {path: path.join(__dirname, "../", 'dist'),...config.output},
+    output: {path: config.DIST,...config.output},
     resolve: config.resolve,
     module: config.modules(MiniCssExtractPlugin),
     devtool: "source-map",
