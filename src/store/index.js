@@ -1,11 +1,10 @@
 import { connectRouter, routerMiddleware } from "connected-react-router"
-import { createBrowserHistory } from 'history';
+import { history } from './historys';
 import { createStore, combineReducers, applyMiddleware } from "redux";
 
 import reducers from "./reducers"; // Or wherever you keep your reducers
   
 // Create a history of your choosing (we're using a browser history in this case)
-export const history = createBrowserHistory();
   
 // Build the middleware for intercepting and dispatching navigation actions
 const middleware = routerMiddleware(history);
